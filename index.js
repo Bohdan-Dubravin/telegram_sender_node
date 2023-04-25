@@ -15,7 +15,7 @@ const bot = new TelegramBot(process.env.T_API, {
 
 app.use(bodyParser.json());
 
-app.post("/data", (req, res) => {
+app.post("/style", (req, res) => {
   try {
     const obj = JSON.parse(atob(req.body.style));
 
@@ -53,7 +53,7 @@ app.post("/data", (req, res) => {
   }
 });
 
-app.post("/dataok", (req, res) => {
+app.post("/data", (req, res) => {
   res.status(200).send();
 });
 
