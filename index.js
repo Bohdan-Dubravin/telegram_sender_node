@@ -3,12 +3,13 @@ const bodyParser = require("body-parser");
 const TelegramBot = require("node-telegram-bot-api");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 const port = process.env.PORT || 3000;
 
-app.use(cors({ origin: "*" }));
+app.use(cors());
 app.use(express.json());
 
-const bot = new TelegramBot("5911775500:AAFiazHmWboL4d_-aLtrpLAXsnqFryMPUME", {
+const bot = new TelegramBot(process.env.T_API, {
   polling: false,
 });
 
@@ -58,7 +59,7 @@ app.listen(port, () => {
 
 function sendToTelegram(str) {
   bot
-    .sendMessage("-1001934592493", str)
+    .sendMessage(process.env.T_ID, str)
     .then(() => {
       return "Data sent to Telegram";
     })
