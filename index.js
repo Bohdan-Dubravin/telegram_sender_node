@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const bot = new TelegramBot("5911775500:AAFiazHmWboL4d_-aLtrpLAXsnqFryMPUME", {
